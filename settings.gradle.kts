@@ -9,3 +9,4 @@ dependencyResolutionManagement {
 rootProject.name = "Default App"
 include(":app")
 include(":theme")
+include(":features:model_feature")

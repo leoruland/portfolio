@@ -64,10 +64,9 @@ android {
 
 dependencies {
     implementation(project(":theme"))
+    implementation(project(":features:model_feature"))
 
     implementation(localLibs.material)
-    implementation(platform(localLibs.compose.bom))
     implementation(localLibs.compose.activity)
     implementation(localLibs.bundles.material.compose)
-    implementation(localLibs.bundles.compose.ui)
 }

@@ -1,0 +1,5 @@
+<resources>
+    <string name="greeting_line">Everything %s!</string>
+    <string name="goodbye_line">%s no more!</string>
+    <string name="mock_statement">is fine</string>
+</resources>

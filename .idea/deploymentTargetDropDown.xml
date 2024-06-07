@@ -5,6 +5,15 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="features.model_feature">
+        <State />
+      </entry>
+      <entry key="model_feature">
+        <State />
+      </entry>
+      <entry key="navigation">
+        <State />
+      </entry>
       <entry key="theme">
         <State />
       </entry>

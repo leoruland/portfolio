@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "de.leonardo.features.model_feature"
+    namespace = "de.leonardo.navigation"
     compileSdk = (project.properties["ANDROID_BUILD_SDK_VERSION"] as String).toInt()
 
     defaultConfig {
@@ -37,10 +37,5 @@ android {
 }
 
 dependencies {
-    implementation(project(":theme"))
-    implementation(project(":navigation"))
-
-    implementation(localLibs.bundles.material.compose)
-    implementation(localLibs.bundles.compose.ui)
     implementation(localLibs.compose.navigation)
 }

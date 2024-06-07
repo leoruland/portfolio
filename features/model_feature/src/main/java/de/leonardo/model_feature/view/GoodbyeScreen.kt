@@ -1,5 +1,6 @@
 package de.leonardo.model_feature.view
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,14 +15,16 @@ import de.leonardo.features.model_feature.R
 import de.leonardo.theme.default.DefaultAppTheme
 
 @Composable
-fun GoodbyeScreen(text: String, modifier: Modifier = Modifier) {
+fun GoodbyeScreen(modifier: Modifier = Modifier, onClick: () -> Unit) {
     Column(
-        Modifier.fillMaxSize(),
+        Modifier
+            .fillMaxSize()
+            .clickable { onClick() },
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = stringResource(R.string.goodbye_line, text),
+            text = stringResource(R.string.goodbye_line, stringResource(R.string.mock_statement)),
             style = MaterialTheme.typography.headlineLarge,
             modifier = modifier,
         )
@@ -32,6 +35,6 @@ fun GoodbyeScreen(text: String, modifier: Modifier = Modifier) {
 @Composable
 private fun GoodbyePreview() {
     DefaultAppTheme {
-        GoodbyeScreen(stringResource(R.string.mock_statement))
+        GoodbyeScreen(onClick = {})
     }
 }

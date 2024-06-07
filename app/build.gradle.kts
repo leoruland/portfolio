@@ -64,9 +64,12 @@ android {
 
 dependencies {
     implementation(project(":theme"))
+    implementation(project(":navigation"))
+
     implementation(project(":features:model_feature"))
 
     implementation(localLibs.material)
     implementation(localLibs.compose.activity)
     implementation(localLibs.bundles.material.compose)
+    implementation(localLibs.compose.navigation)
 }

@@ -7,28 +7,28 @@ import androidx.navigation.compose.composable
 import de.leonardo.model_feature.view.GoodbyeScreen
 import de.leonardo.model_feature.view.GreetingScreen
 
-fun NavGraphBuilder.featureGraph(
+fun NavGraphBuilder.featureRoutes(
     modifier: Modifier,
     navController: NavController,
 ) {
-    composable(FeatureDestinations.Start.route) {
+    composable(FeatureDestinations.Start.destination) {
         GreetingScreen(
             modifier = modifier,
-            onClick = { navController.navigate(FeatureDestinations.ShowGoodbye.route) }
+            onClick = { navController.navigate(FeatureDestinations.ShowGoodbye.destination) }
         )
     }
 
-    composable(FeatureDestinations.ShowGreeting.route) {
+    composable(FeatureDestinations.ShowGreeting.destination) {
         GreetingScreen(
             modifier = modifier,
-            onClick = { navController.navigate(FeatureDestinations.ShowGoodbye.route) }
+            onClick = { navController.navigate(FeatureDestinations.ShowGoodbye.destination) }
         )
     }
 
-    composable(FeatureDestinations.ShowGoodbye.route) {
+    composable(FeatureDestinations.ShowGoodbye.destination) {
         GoodbyeScreen(
             modifier = modifier,
-            onClick = { navController.navigate(FeatureDestinations.ShowGreeting.route) }
+            onClick = { navController.navigate(FeatureDestinations.ShowGreeting.destination) }
         )
     }
 }

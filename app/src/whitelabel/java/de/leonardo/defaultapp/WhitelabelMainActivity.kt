@@ -1,45 +1,29 @@
 package de.leonardo.defaultapp
 
-import android.os.Bundle
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.compose.rememberNavController
-import de.leonardo.defaultapp.navigation.MainNavHost
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
 import de.leonardo.model_feature.navigation.FeatureDestinations
-import de.leonardo.navigation.view.TabBar
-import de.leonardo.theme.default.DefaultAppTheme
+import de.leonardo.model_feature.navigation.featureRoutes
+import de.leonardo.navigation.NavigationTarget
 
 class WhitelabelMainActivity : MainActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val navigationItems = listOf(
-            FeatureDestinations.ShowGreeting,
-            FeatureDestinations.Start,
-            FeatureDestinations.ShowGoodbye,
-        )
-        setContent {
-            val navController = rememberNavController()
-            DefaultAppTheme {
-                Scaffold(
-                    topBar = {},
-                    content = { paddingValues ->
-                        val modifier = Modifier.padding(paddingValues)
-                        MainNavHost(
-                            modifier = modifier,
-                            navController = navController,
-                            startDestination = FeatureDestinations.Start,
-                        )
-                    },
-                    bottomBar = {
-                        BottomAppBar {
-                            TabBar(navController = navController, navItems = navigationItems)
-                        }
-                    }
-                )
-            }
+
+    override val navigationItems: List<NavigationTarget> = listOf(
+        FeatureDestinations.ShowGreeting,
+        FeatureDestinations.Start,
+        FeatureDestinations.ShowGoodbye,
+    )
+    override val initialTarget: NavigationTarget = FeatureDestinations.Start
+
+    @Composable
+    override fun MainNavHost(modifier: Modifier, navHostController: NavHostController) =
+        NavHost(
+            modifier = modifier,
+            navController = navHostController,
+            startDestination = initialTarget.destination,
+        ) {
+            featureRoutes(Modifier, navHostController)
         }
-    }
 }

@@ -2,8 +2,8 @@ package de.leonardo.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 
-interface NavigationDestination {
+interface NavigationTarget {
     val name: String
-    val route: String
+    val destination: String
     val icon: ImageVector?
 }

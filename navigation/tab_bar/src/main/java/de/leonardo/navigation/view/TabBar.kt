@@ -12,32 +12,31 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.navigation.NavController
-import de.leonardo.navigation.NavigationDestination
+import de.leonardo.navigation.NavigationTarget
 
 @Composable
 fun TabBar(
     navController: NavController,
-    navItems: List<NavigationDestination>,
-    initDestination: NavigationDestination = navItems.first(),
+    navItems: List<NavigationTarget>,
+    initialTarget: NavigationTarget? = navItems.first(),
 ) {
-
-    var selectedItem by remember { mutableIntStateOf(0) }
-    var currentRoute by remember { mutableStateOf(initDestination.route) }
+    var selectedItem by remember { mutableIntStateOf(navItems.indexOf(initialTarget)) }
+    var currentRoute by remember { mutableStateOf(initialTarget?.destination) }
 
     navItems.forEachIndexed { index, navigationItem ->
-        if (navigationItem.route == currentRoute) {
+        if (navigationItem.destination == currentRoute) {
             selectedItem = index
         }
     }
 
     NavigationBar {
-        navItems.forEachIndexed { index, target ->
+        navItems.forEachIndexed { index, destination ->
             NavigationBarItem(
                 selected = selectedItem == index,
                 onClick = {
                     selectedItem = index
-                    currentRoute = target.route
-                    navController.navigate(target.route) {
+                    currentRoute = destination.destination
+                    navController.navigate(destination.destination) {
                         navController.graph.startDestinationRoute?.let { route ->
                             popUpTo(route) {
                                 saveState = true
@@ -47,7 +46,7 @@ fun TabBar(
                         restoreState = true
                     }
                 },
-                icon = { Icon(target.icon ?: Icons.Default.Star, "") },
+                icon = { Icon(destination.icon ?: Icons.Default.Star, "") },
             )
         }
     }

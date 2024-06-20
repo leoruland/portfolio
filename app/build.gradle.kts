@@ -64,7 +64,8 @@ android {
 
 dependencies {
     implementation(project(":theme"))
-    implementation(project(":navigation"))
+    implementation(project(":navigation:core"))
+    implementation(project(":navigation:tab_bar"))
 
     implementation(project(":features:model_feature"))
 

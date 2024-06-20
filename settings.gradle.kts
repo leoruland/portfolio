@@ -9,5 +9,6 @@ dependencyResolutionManagement {
 rootProject.name = "Default App"
 include(":app")
 include(":theme")
-include(":navigation")
+include(":navigation:core")
+include(":navigation:tab_bar")
 include(":features:model_feature")

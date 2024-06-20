@@ -1,11 +1,14 @@
 package de.leonardo.model_feature.navigation
 
+import androidx.compose.ui.graphics.vector.ImageVector
 import de.leonardo.navigation.NavigationDestination
 
-enum class FeatureDestinations(
-    override val route: String
+sealed class FeatureDestinations(
+    override val name: String,
+    override val route: String,
+    override val icon: ImageVector? = null,
 ) : NavigationDestination {
-    Start("navigation_feature_start"),
-    ShowGreeting("navigation_feature_show_greeting"),
-    ShowGoodbye("navigation_feature_show_goodbye")
+    data object Start : FeatureDestinations(name = "Start", route = "navigation_feature_start")
+    data object ShowGreeting : FeatureDestinations(name = "Greeting", route = "navigation_feature_show_greeting")
+    data object ShowGoodbye : FeatureDestinations(name = "Goodbye", route = "navigation_feature_show_goodbye")
 }

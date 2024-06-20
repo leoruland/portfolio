@@ -15,19 +15,20 @@ android {
         targetSdk = (project.properties["ANDROID_BUILD_TARGET_SDK_VERSION"] as String).toInt()
     }
 
-    flavorDimensions += "customer"
+    flavorDimensions += "client"
     productFlavors {
-        create("base") {
-            dimension = "customer"
-            applicationId = "de.leonardo.base"
-            applicationIdSuffix = ".base"
-            versionNameSuffix = "-base"
+        create("whitelabel") {
+            isDefault = true
+            dimension = "client"
+            applicationId = "de.leonardo.whitelabel"
+            applicationIdSuffix = ".whitelabel"
+            versionNameSuffix = "-whitelabel"
         }
-        create("customer") {
-            dimension = "customer"
-            applicationId = "de.leonardo.customer.appname"
-            applicationIdSuffix = ".customer"
-            versionNameSuffix = "-customer"
+        create("example") {
+            dimension = "client"
+            applicationId = "de.leonardo.example.appname"
+            applicationIdSuffix = ".example"
+            versionNameSuffix = "-example"
         }
     }
 

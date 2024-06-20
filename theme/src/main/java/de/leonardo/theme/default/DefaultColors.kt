@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.colorResource
 import de.leonardo.theme.R
 
-internal val defaultColorScheme: ColorScheme
+val defaultColorScheme: ColorScheme
     @Composable get() = ColorScheme(
         primary = colorResource(id = R.color.primary),
         onPrimary = colorResource(id = R.color.onPrimary),

@@ -14,14 +14,14 @@ class WhitelabelMainActivity : MainActivity() {
         FeatureDestinations.ShowGreeting,
         FeatureDestinations.ShowGoodbye,
     )
-    override val initialTarget: NavigationTarget = FeatureDestinations.Start
+    override val initialTarget: NavigationTarget = FeatureDestinations.ShowGreeting
 
     @Composable
     override fun MainNavHost(modifier: Modifier, navHostController: NavHostController) =
         NavHost(
             modifier = modifier,
             navController = navHostController,
-            startDestination = FeatureDestinations.ShowGreeting.destination,
+            startDestination = initialTarget.destination,
         ) {
             featureRoutes(Modifier, navHostController)
         }

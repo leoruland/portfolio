@@ -8,7 +8,6 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import de.leonardo.navigation.NavigationStateHolder
 import de.leonardo.navigation.NavigationTarget
 
 @Composable

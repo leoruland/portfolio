@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--These values are a fallback in case no colours are defined in the app modules flavour.-->
 <resources>
     <color name="primary">#4C662B</color>
     <color name="onPrimary">#FFFFFF</color>

@@ -1,4 +1,4 @@
-package de.leonardo.theme.example
+package de.leonardo.theme.gothic
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
@@ -7,14 +7,14 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import de.leonardo.defaultapp.R
+import de.leonardo.theme.R
 
 internal val fontFamilyFraktur = FontFamily(
     Font(R.font.leipzig_fraktur_normal, weight = FontWeight.W400),
     Font(R.font.leipzig_fraktur_bold, weight = FontWeight.W700),
 )
 
-val exampleTypography: Typography
+internal val GothicTypography: Typography
     @Composable get() = MaterialTheme.typography.copy(
         displayLarge = MaterialTheme.typography.displayLarge.copy(
             fontSize = 57.sp,

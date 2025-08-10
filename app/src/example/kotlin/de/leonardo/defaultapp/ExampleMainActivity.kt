@@ -3,6 +3,7 @@ package de.leonardo.defaultapp
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -12,7 +13,8 @@ import de.leonardo.model_feature.navigation.FeatureDestinations
 import de.leonardo.model_feature.navigation.featureRoutes
 import de.leonardo.navigation.NavigationTarget
 import de.leonardo.navigation.view.TabBar
-import de.leonardo.theme.example.ExampleAppTheme
+import de.leonardo.theme.colourExtension.extendedColours
+import de.leonardo.theme.gothic.GothicAppTheme
 
 class ExampleMainActivity : MainActivity() {
 
@@ -37,17 +39,10 @@ class ExampleMainActivity : MainActivity() {
     @Composable
     override fun ApplicationContent(navHostController: NavHostController) {
         setContent {
-            ExampleAppTheme {
+            GothicAppTheme {
                 Scaffold(
-                    topBar = {
-                        BottomAppBar {
-                            TabBar(
-                                navController = navHostController,
-                                navItems = navigationItems,
-                                initialTarget = initialTarget,
-                            )
-                        }
-                    },
+                    containerColor = MaterialTheme.extendedColours.userFriendlyChoice,
+                    topBar = {},
                     content = { paddingValues ->
                         val modifier = Modifier.padding(paddingValues)
                         MainNavHost(
@@ -55,7 +50,15 @@ class ExampleMainActivity : MainActivity() {
                             navHostController = navHostController,
                         )
                     },
-                    bottomBar = {}
+                    bottomBar = {
+                        BottomAppBar {
+                            TabBar(
+                                navController = navHostController,
+                                navItems = navigationItems,
+                                initialTarget = initialTarget,
+                            )
+                        }
+                    }
                 )
             }
         }

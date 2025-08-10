@@ -40,7 +40,7 @@ dependencies {
     implementation(project(":theme"))
     implementation(project(":navigation:core"))
 
-    implementation(localLibs.bundles.material.compose)
-    implementation(localLibs.bundles.compose.ui)
-    implementation(localLibs.compose.navigation)
+    implementation(libs.bundles.material.compose)
+    implementation(libs.bundles.compose.ui)
+    implementation(libs.compose.navigation)
 }

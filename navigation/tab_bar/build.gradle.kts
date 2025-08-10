@@ -38,6 +38,6 @@ android {
 
 dependencies {
     implementation(project(":navigation:core"))
-    implementation(localLibs.material3)
-    implementation(localLibs.compose.navigation)
+    implementation(libs.material3)
+    implementation(libs.compose.navigation)
 }

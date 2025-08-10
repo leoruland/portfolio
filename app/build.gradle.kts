@@ -67,8 +67,8 @@ dependencies {
 
     implementation(project(":features:model_feature"))
 
-    implementation(localLibs.material)
-    implementation(localLibs.compose.activity)
-    implementation(localLibs.bundles.material.compose)
-    implementation(localLibs.compose.navigation)
+    implementation(libs.material)
+    implementation(libs.compose.activity)
+    implementation(libs.bundles.material.compose)
+    implementation(libs.compose.navigation)
 }

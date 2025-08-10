@@ -38,6 +38,7 @@ android {
 
 dependencies {
 
-    implementation(platform(localLibs.compose.bom))
-    implementation(localLibs.bundles.material.compose)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.bundles.material.compose)
+    implementation(libs.androidx.core)
 }

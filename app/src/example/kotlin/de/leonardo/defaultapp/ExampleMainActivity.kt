@@ -2,7 +2,6 @@ package de.leonardo.defaultapp
 
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -12,7 +11,7 @@ import androidx.navigation.compose.NavHost
 import de.leonardo.model_feature.navigation.FeatureDestinations
 import de.leonardo.model_feature.navigation.featureRoutes
 import de.leonardo.navigation.NavigationTarget
-import de.leonardo.navigation.view.TabBar
+import de.leonardo.navigation.view.NavigationBar
 import de.leonardo.theme.colourExtension.extendedColours
 import de.leonardo.theme.gothic.GothicAppTheme
 
@@ -51,13 +50,10 @@ class ExampleMainActivity : MainActivity() {
                         )
                     },
                     bottomBar = {
-                        BottomAppBar {
-                            TabBar(
-                                navController = navHostController,
-                                navItems = navigationItems,
-                                initialTarget = initialTarget,
-                            )
-                        }
+                        NavigationBar(
+                            navController = navHostController,
+                            navItems = navigationItems,
+                        )
                     }
                 )
             }

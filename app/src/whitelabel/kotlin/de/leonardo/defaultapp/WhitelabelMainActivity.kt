@@ -12,7 +12,6 @@ class WhitelabelMainActivity : MainActivity() {
 
     override val navigationItems: List<NavigationTarget> = listOf(
         FeatureDestinations.ShowGreeting,
-        FeatureDestinations.Start,
         FeatureDestinations.ShowGoodbye,
     )
     override val initialTarget: NavigationTarget = FeatureDestinations.Start
@@ -22,7 +21,7 @@ class WhitelabelMainActivity : MainActivity() {
         NavHost(
             modifier = modifier,
             navController = navHostController,
-            startDestination = initialTarget.destination,
+            startDestination = FeatureDestinations.ShowGreeting.destination,
         ) {
             featureRoutes(Modifier, navHostController)
         }

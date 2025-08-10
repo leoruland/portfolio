@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import de.leonardo.navigation.NavigationTarget
-import de.leonardo.navigation.view.TabBar
+import de.leonardo.navigation.view.NavigationBar
 import de.leonardo.theme.default.DefaultAppTheme
 
 abstract class MainActivity : ComponentActivity() {
@@ -32,10 +32,9 @@ abstract class MainActivity : ComponentActivity() {
                 },
                 bottomBar = {
                     BottomAppBar {
-                        TabBar(
+                        NavigationBar(
                             navController = navHostController,
                             navItems = navigationItems,
-                            initialTarget = initialTarget
                         )
                     }
                 }

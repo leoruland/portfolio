@@ -2,15 +2,27 @@ package de.leonardo.theme.utils
 
 import android.app.Activity
 import android.view.View
-import androidx.compose.material3.ColorScheme
-import androidx.compose.material3.surfaceColorAtElevation
-import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.unit.dp
+import androidx.annotation.ColorInt
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import androidx.core.view.WindowCompat
 
-fun setSystemBarColours(view: View, colourScheme: ColorScheme) {
+@Composable
+fun setSystemBarColours(
+    view: View,
+    @ColorInt statusBarColor: Int,
+    @ColorInt navigationBarColor: Int,
+    useDarkIcons: Boolean = false
+) {
+    val window = (view.context as Activity).window
     if (!view.isInEditMode) {
-        val window = (view.context as Activity).window
-        window.statusBarColor = colourScheme.primary.toArgb()
-        window.navigationBarColor = colourScheme.surfaceColorAtElevation(3.dp).toArgb()
+        window.statusBarColor = statusBarColor
+        window.navigationBarColor = navigationBarColor
+    }
+    SideEffect {
+        WindowCompat.getInsetsController(window, window.decorView).apply {
+            isAppearanceLightStatusBars = useDarkIcons
+            isAppearanceLightNavigationBars = useDarkIcons
+        }
     }
 }

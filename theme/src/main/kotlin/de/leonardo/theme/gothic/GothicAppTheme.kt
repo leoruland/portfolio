@@ -4,15 +4,10 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Shapes
 import androidx.compose.material3.Typography
-import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.platform.LocalView
-import androidx.compose.ui.unit.dp
 import de.leonardo.theme.colourExtension.ExtendedColours
 import de.leonardo.theme.colourExtension.LocalExtendedColours
-import de.leonardo.theme.utils.setSystemBarColours
 
 @Composable
 fun GothicAppTheme(
@@ -37,13 +32,6 @@ fun GothicAppTheme(
             commercialChoice = colourScheme.secondary
         )
     }
-
-    val view = LocalView.current
-    setSystemBarColours(
-        view = view,
-        statusBarColor = colourScheme.surface.toArgb(),
-        navigationBarColor = colourScheme.surfaceColorAtElevation(3.dp).toArgb()
-    )
 
     CompositionLocalProvider(LocalExtendedColours provides extendedColours) {
         MaterialTheme(
